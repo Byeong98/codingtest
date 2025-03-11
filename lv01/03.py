@@ -133,11 +133,11 @@ def solution2(park, routes):
     for i in routes:
         v,d = i.split()
         for k in range(1,int(d)+1):
-            X,Y = x+k*delta[v][0], y+k*delta[v][1]
-            if park[X][Y]=='X':
+            nx,ny = x+k*delta[v][0], y+k*delta[v][1]
+            if park[nx][ny]=='X':
                 break
         else:
-            x,y = X,Y
+            x,y = nx,ny
     
     # 테두리를 추가 했으므로 원래 크키고 반환
     return [x-1,y-1]

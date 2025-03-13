@@ -74,7 +74,7 @@ def solution1(s):
 answer += 1 을 한다면 쉽게 풀이기 가능하다.
 
 """
-def solution2(s):
+def solution(s):
     answer = 0
     x,y = 0, 0
     for i in s:

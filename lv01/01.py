@@ -88,7 +88,7 @@ players	callings	result
 #     return players
 
 
-def solution(players, callings):
+def solution1(players, callings):
     rank = {player : i for i, player in enumerate(players)}
 
     for call in callings:
@@ -102,7 +102,7 @@ def solution(players, callings):
 
 
 
-def solution(players, callings):
+def solution2(players, callings):
     rank = {player : i for i, player in enumerate(players)}
 
     for call in callings:
@@ -112,4 +112,18 @@ def solution(players, callings):
     return players
 
 
-print(solution(["mumu", "soe", "poe", "kai", "mine"],["kai", "kai", "mine", "mine"]))
+# print(solution(["mumu", "soe", "poe", "kai", "mine"],["kai", "kai", "mine", "mine"]))
+
+
+
+
+def solution3(players, callings):
+    dicts = { j:i for i, j in enumerate(players)}
+    for calling in callings:
+        dicts[calling] -= 1
+        dicts[players[dicts[calling]]] += 1
+        players[dicts[calling]+1], players[dicts[calling]],  =   players[dicts[calling]], players[dicts[calling]+1]
+
+    return players, dicts
+
+print(solution3(["mumu", "soe", "poe", "kai", "mine"],["kai", "kai", "mine", "mine"]))

@@ -77,4 +77,21 @@ def solution3(name, yearning, photo):
     answer = [sum( dic[j] for j in i if j in name ) for i in photo]
     return answer
 
-print(solution3(["may", "kein", "kain", "radi"], [5, 10, 1, 3],	[["may", "kein", "kain", "radi"],["may", "kein", "brin", "deny"], ["kon", "kain", "may", "coni"]]))
+# print(solution3(["may", "kein", "kain", "radi"], [5, 10, 1, 3],	[["may", "kein", "kain", "radi"],["may", "kein", "brin", "deny"], ["kon", "kain", "may", "coni"]]))
+
+
+
+def solution4(name, yearning, photo):
+    answer = []
+    dicts = { name[i]: yearning[i] for i in range(len(name))}
+    for p in photo:
+        score = 0
+        for i in p:
+            if i in name:
+                score +=dicts[i]
+        answer.append(score)
+    return answer
+
+
+
+print(solution4(["may", "kein", "kain", "radi"], [5, 10, 1, 3],	[["may", "kein", "kain", "radi"],["may", "kein", "brin", "deny"], ["kon", "kain", "may", "coni"]]))

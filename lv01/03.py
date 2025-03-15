@@ -106,9 +106,9 @@ def solution(park, routes):
     return x, y
 
 
-print(solution(["SOO", "OOO", "OOO"], ["E 2", "S 2", "W 1"]))
-print(solution(["SOO", "OXX", "OOO"], ["E 2", "S 2", "W 1"]))
-print(solution(["OSO","OOO","OXO","OOO"],["E 2","S 3","W 1"]))
+# print(solution(["SOO", "OOO", "OOO"], ["E 2", "S 2", "W 1"]))
+# print(solution(["SOO", "OXX", "OOO"], ["E 2", "S 2", "W 1"]))
+# print(solution(["OSO","OOO","OXO","OOO"],["E 2","S 3","W 1"]))
 
 
 # 다른 사람 풀이
@@ -146,3 +146,33 @@ def solution2(park, routes):
 # print(solution2(["SOO", "OXX", "OOO"], ["E 2", "S 2", "W 1"]))
 # print(solution2(["OSO","OOO","OXO","OOO"],["E 2","S 3","W 1"]))
 
+
+def solution3(park, routes):
+    x,y = 0, 0
+    
+    park = ["X"*(len(park)+2)] + ["X"+i+"X" for i in park] + ["X"*(len(park)+2)]
+        
+    for i in range(len(park)):
+        if "S" in park[i]:
+            x, y = i, park[i].index("S")
+            break
+    
+    dicts = {"W": (0, -1) , "E": (0,1), "S": (1,0), "N": (-1,0) }
+
+    # 이동
+    for i in routes:
+        op, n = i.split()
+        nx, ny = x, y
+        for _ in range(int(n)):
+            nx, ny = x+ dicts[op][0], y+dicts[op][1]
+            if park[nx][ny] == "X":
+                nx, ny = x, y 
+                break
+        else:
+            x, y = nx, ny
+
+    return x, y
+
+print(solution3(["SOO", "OOO", "OOO"], ["E 2", "S 2", "W 1"]))
+print(solution3(["SOO", "OXX", "OOO"], ["E 2", "S 2", "W 1"]))
+print(solution3(["OSO","OOO","OXO","OOO"],["E 2","S 3","W 1"]))

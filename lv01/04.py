@@ -74,7 +74,7 @@ def solution1(s):
 answer += 1 을 한다면 쉽게 풀이기 가능하다.
 
 """
-def solution(s):
+def solution2(s):
     answer = 0
     x,y = 0, 0
     for i in s:
@@ -92,6 +92,21 @@ def solution(s):
 
 
 
-print(solution("banana"))
-print(solution("abracadabra"))
-print(solution("aaabbaccccabba"))
+def solution3(s):
+    cx, cy  = 0, 0
+    count = 0 
+    for i in s:
+        if cx == cy:
+            count += 1
+            x = i
+        if x == i:
+            cx += 1
+        else: 
+            cy += 1
+    
+    return count
+
+
+print(solution3("banana"))
+print(solution3("abracadabra"))
+print(solution3("aaabbaccccabba"))

@@ -137,7 +137,8 @@ def solution2(park, routes):
             if park[nx][ny]=='X':
                 break
         else:
-            x,y = nx,ny
+            x, y = x, y
+            # x,y = nx,ny
     
     # 테두리를 추가 했으므로 원래 크키고 반환
     return [x-1,y-1]

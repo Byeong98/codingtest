@@ -34,18 +34,31 @@ p의 길이가 2이므로 t의 부분문자열은 "10", "02", "20", "03"이며, 
 2. 
 """
 
-def solution(t, p):
+
+def solution1(t, p):
     answer = 0
     for i in range(len(t) - len(p) + 1):
         if int(t[i:i+len(p)]) <= int(p):
-                answer += 1
+            answer += 1
     return answer
 
-print(solution("3141592","271"))
-print(solution("500220839878","7"))
-print(solution("10203","15")) 
 
+# print(solution("3141592", "271"))
+# print(solution("500220839878", "7"))
+# print(solution("10203", "15"))
 
 
 # if int(t[i:i+len(p)]) <= int(p):
 #                 answer += 1
+
+
+def solution(t, p):
+    answer = 0
+    for i in range(len(t)-len(p)+1):
+        if int(t[i:i+len(p)]) <= int(p):
+            answer += 1
+    return answer
+
+print(solution("3141592", "271"))
+# print(solution("500220839878", "7"))
+# print(solution("10203", "15"))

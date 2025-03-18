@@ -54,5 +54,20 @@ def solution(s):
 
 
 
-print(solution("banana"))
-print(solution("foobar"))
+# print(solution("banana"))
+# print(solution("foobar"))
+
+def solution2(s):
+    answer= []
+    dicts = {}
+    for i in range(len(s)):
+        if s[i] in dicts:
+            answer.append(i-dicts[s[i]])
+        else:
+            answer.append(-1)
+        dicts[s[i]] = i
+        
+    return answer
+
+print(solution2("banana"))
+print(solution2("foobar"))

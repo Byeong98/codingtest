@@ -60,7 +60,7 @@ def solution(cards1, cards2, goal):
 
 
 
-
+# 복습 25/03/20
 def solution2(cards1, cards2, goal):
     for i in goal:
         if cards1 and i == cards1[0]: 

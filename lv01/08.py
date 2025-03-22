@@ -39,8 +39,7 @@ def solution(k, score):
     return answer
 
 
-print(solution(3, [10, 100, 20, 150, 1, 100, 200]))
-print(solution(4, [0, 300, 40, 300, 20, 70, 150, 50, 500, 1000]))
+
 
 
 # 다른 사람 풀이
@@ -76,3 +75,20 @@ def solution3(k, score):
 매번 최솟값을 찾아야 하는 상황에서는 정렬을 통한 최소값 제거가 효율 적이다.
 최소값만 찾는 방법을 사용했는데 k개의 작은 단위만 주어진다면 정렬도 좋은 방법이다.
 """
+
+
+def solution4(k, score):
+    answer = []
+    li = []
+    for i in score:
+        li.append(i)
+        li.sort()
+        if len(li) > k:
+            li.pop(0)
+        answer.append(li[0])
+
+    return answer
+
+
+print(solution4(3, [10, 100, 20, 150, 1, 100, 200]))
+print(solution4(4, [0, 300, 40, 300, 20, 70, 150, 50, 500, 1000]))

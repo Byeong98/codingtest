@@ -46,9 +46,6 @@ def solution(a, b, n):
     return answer
 
 
-print(solution(2, 1, 20))
-print(solution(3, 1, 20))
-
 
 # 다른 사람 풀이 
 
@@ -58,5 +55,22 @@ def solution2(a, b, n):
         n -= a  # 빈 병 a개를 마트에 줌
         answer += b  # 콜라 b병을 받음
         n += b  # 받은 콜라를 마시면 새로운 빈 병이 생김
-
     return answer 
+
+
+def solution3(a, b, n):
+    answer = 0
+    count = n
+    for _ in range(n):
+        if count < a:
+            break
+        count -= a
+        answer += b
+        count += b
+
+    return answer
+
+
+
+print(solution3(2, 1, 20))
+print(solution3(3, 1, 20))

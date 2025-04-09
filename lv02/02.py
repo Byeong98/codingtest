@@ -77,7 +77,7 @@ def solution2(sequence, k):
 
     return [answer[0], answer[1]]
 
-print(solution([1, 2, 3, 4, 5],7))
+print(solution2([1, 2, 3, 4, 5],7))
 
 # 다른 사람풀이
 def solution(sequence, k):

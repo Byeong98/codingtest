@@ -38,8 +38,8 @@ def solution2(data:str) -> int:
     for i in data: 
         if i.isnumeric():  
             s.append(int(i))
-        elif i != " ":
-            n2 = s.pop()
+        elif i != " ": # 빈값 제외 
+            n2 = s.pop() # 후입 선출 구조라 n2를 먼저 선원 빼기 또는 나누기위 경우 순서가 중요하기 때문
             n1 = s.pop()
             if i == "+":
                 res = n1 + n2
@@ -49,7 +49,7 @@ def solution2(data:str) -> int:
                 res = n1*n2
             elif i == "/":
                 res = n1/n2
-            s.append(res)
+            s.append(res) # 연산 값 저장
     return s[0]
 
 
